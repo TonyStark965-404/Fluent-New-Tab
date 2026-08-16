@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Fluent New Tab",
+  "version": "1.1",
+  "description": "Windows 11 Fluent Design New Tab page with NASA APOD and live weather.",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "permissions": ["storage", "topSites"]
+}

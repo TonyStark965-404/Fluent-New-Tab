@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Tab</title>
+  </head>
+  <body class="dark-theme">
+    
+    <!-- Top Utility Bar -->
+    <div class="top-bar">
+      <!-- Top Left: Recent Sites Flyout -->
+      <div class="recent-sites-wrapper">
+        <button id="recent-btn" class="winui-glass-btn">
+          <svg class="btn-icon" viewBox="0 0 24 24" width="16" height="16">
+            <path fill="currentColor" d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6a7 7 0 1 1 7 7 6.97 6.97 0 0 1-5-2.14l-1.42 1.42A8.92 8.92 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/>
+          </svg>
+          Recent Sites
+        </button>
+        <div id="recent-menu" class="recent-flyout hidden">
+          <div class="flyout-header">Most Visited</div>
+          <div id="recent-list" class="flyout-list"></div>
+        </div>
+      </div>
+
+      <!-- Top Right: Live Weather Widget -->
+      <div id="weather-widget" class="winui-glass-pill">
+        <span id="weather-icon">🌤️</span>
+        <span id="weather-temp">--°C</span>
+        <span id="weather-desc" class="weather-text">Loading...</span>
+      </div>
+    </div>
+
+    <div class="desktop-container">
+      
+      <!-- Hero Clock -->
+      <header class="hero-clock">
+        <h1 id="clock-time">00:00</h1>
+        <p id="clock-date">Loading date...</p>
+      </header>
+
+      <!-- Windows 11 Acrylic Search Bar -->
+      <div class="search-container winui-search">
+        <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18">
+          <path fill="currentColor" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+        </svg>
+        <input type="text" id="search-input" placeholder="Search the web or type a URL..." autofocus />
+      </div>
+
+      <!-- Main Content Widgets -->
+      <main class="grid-layout">
+        
+        <!-- NASA APOD Widget -->
+        <section class="winui-card widget-card">
+          <div class="widget-header">
+            <span class="widget-badge">NASA APOD</span>
+            <span id="nasa-status" class="status-dot"></span>
+          </div>
+          <div class="widget-body">
+            <h2 id="time-coded">Loading Picture...</h2>
+            <p id="coding-project">Fetching today's space explanation...</p>
+          </div>
+        </section>
+
+        <!-- Pinned Shortcuts -->
+        <section class="winui-card widget-card">
+          <div class="widget-header">
+            <span class="widget-title">Pinned Apps</span>
+          </div>
+          <div class="shortcuts-grid">
+            <a href="https://github.com" class="shortcut-item">
+              <span class="shortcut-icon">🐙</span>
+              <span>GitHub</span>
+            </a>
+            <a href="https://hackclub.com" class="shortcut-item">
+              <span class="shortcut-icon">🚩</span>
+              <span>Hack Club</span>
+            </a>
+            <a href="https://youtube.com" class="shortcut-item">
+              <span class="shortcut-icon">▶️</span>
+              <span>YouTube</span>
+            </a>
+          </div>
+        </section>
+
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

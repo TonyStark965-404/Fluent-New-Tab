@@ -1,0 +1,306 @@
+:root {
+  --win-bg: #1c1c1c;
+  --win-accent: #60cdff;
+  --win-surface-card: rgba(32, 32, 32, 0.5);
+  --win-surface-search: rgba(255, 255, 255, 0.08);
+  --win-card-border-top: rgba(255, 255, 255, 0.15);
+  --win-card-border-bottom: rgba(0, 0, 0, 0.5);
+  --win-text-primary: #ffffff;
+  --win-text-secondary: rgba(255, 255, 255, 0.7);
+  --win-radius-corner: 8px;
+  --win-radius-pill: 24px;
+  --win-shadow-flyout: 0 12px 28px rgba(0, 0, 0, 0.35);
+  --win-font: "Segoe UI Variable Text", "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--win-bg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--win-text-primary);
+  font-family: var(--win-font);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(15, 15, 15, 0.25) 0%, rgba(0, 0, 0, 0.75) 100%);
+  z-index: 0;
+}
+
+/* Top Utility Bar Layout */
+.top-bar {
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  right: 24px;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.winui-glass-btn, .winui-glass-pill {
+  background: rgba(30, 30, 30, 0.55);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--win-card-border-top);
+  border-bottom: 1px solid var(--win-card-border-bottom);
+  border-radius: var(--win-radius-pill);
+  color: var(--win-text-primary);
+  font-family: inherit;
+  font-size: 0.85rem;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.winui-glass-btn {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.winui-glass-btn:hover {
+  background: rgba(50, 50, 50, 0.75);
+  transform: translateY(-1px);
+}
+
+.weather-text {
+  color: var(--win-text-secondary);
+  font-size: 0.8rem;
+}
+
+/* Recent Sites Flyout Menu */
+.recent-sites-wrapper {
+  position: relative;
+}
+
+.recent-flyout {
+  position: absolute;
+  top: 42px;
+  left: 0;
+  width: 240px;
+  background: rgba(32, 32, 32, 0.85);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid var(--win-card-border-top);
+  border-radius: var(--win-radius-corner);
+  box-shadow: var(--win-shadow-flyout);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 20;
+}
+
+.recent-flyout.hidden {
+  display: none;
+}
+
+.flyout-header {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--win-text-secondary);
+  padding: 6px 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.flyout-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  color: var(--win-text-primary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background 0.15s ease;
+}
+
+.flyout-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Desktop Center Layout */
+.desktop-container {
+  position: relative;
+  z-index: 1;
+  width: 90%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+
+/* Clock Header */
+.hero-clock {
+  text-align: center;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.hero-clock h1 {
+  font-size: 5rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -1.5px;
+}
+
+.hero-clock p {
+  margin: 2px 0 0 0;
+  color: var(--win-text-secondary);
+  font-size: 1.1rem;
+}
+
+/* WinUI 3 Blur Search Bar */
+.winui-search {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  border-radius: var(--win-radius-pill);
+  background: var(--win-surface-search);
+  backdrop-filter: blur(35px) saturate(180%);
+  -webkit-backdrop-filter: blur(35px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+  transition: all 0.2s cubic-bezier(0.1, 0.9, 0.2, 1);
+}
+
+.winui-search:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.winui-search:focus-within {
+  background: rgba(20, 20, 20, 0.85);
+  border-color: var(--win-accent);
+  box-shadow: 0 0 0 2px var(--win-accent), var(--win-shadow-flyout);
+}
+
+.search-icon {
+  fill: var(--win-text-secondary);
+  margin-right: 12px;
+}
+
+.winui-search input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--win-text-primary);
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.winui-search input::placeholder {
+  color: var(--win-text-secondary);
+}
+
+/* Card Windows */
+.winui-card {
+  background: var(--win-surface-card);
+  backdrop-filter: blur(30px) saturate(160%);
+  -webkit-backdrop-filter: blur(30px) saturate(160%);
+  border-radius: var(--win-radius-corner);
+  border-top: 1px solid var(--win-card-border-top);
+  border-bottom: 1px solid var(--win-card-border-bottom);
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: var(--win-shadow-flyout);
+  padding: 20px;
+}
+
+.grid-layout {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.widget-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--win-accent);
+  letter-spacing: 0.5px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #2cc56f;
+  border-radius: 50%;
+}
+
+.widget-body h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.widget-body p {
+  margin: 6px 0 0 0;
+  color: var(--win-text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.shortcuts-grid {
+  display: flex;
+  gap: 12px;
+}
+
+.shortcut-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: var(--win-text-primary);
+  font-size: 0.85rem;
+  padding: 10px 14px;
+  border-radius: var(--win-radius-corner);
+  background: rgba(255, 255, 255, 0.05);
+  transition: background 0.15s ease;
+}
+
+.shortcut-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.shortcut-icon {
+  font-size: 1.5rem;
+}
