@@ -4,3 +4,7 @@ Works on-
   •Brave
   •Edge
   •and literally any Chromium Based browser
+How to install-
+  •You can clone the repo and go through all the steps
+  •or just set the Live Demo Webpage as your New tab page
+P.S.- Search Engine is set to Google(for now)
