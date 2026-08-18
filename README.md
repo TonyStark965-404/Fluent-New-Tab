@@ -31,7 +31,7 @@ You can use **Fluent NewTab** in two ways:
 ### Option 1: Load as a Local Browser Extension (Recommended)
 
 1. **Clone the repository:**
-   git clone [https://github.com/your-username/fluent-new-tab.git](https://github.com/your-username/fluent-new-tab.git)
+   git clone [https://github.com/your-username/fluent-new-tab.git](https://github.com/TonyStark965-404/fluent-new-tab.git)
    cd fluent-new-tab
 
 2. Install dependencies and build:
