@@ -39,10 +39,10 @@ You can use **Fluent NewTab** in two ways:
     npm install
     npm run build
 3. Load into your browser:
-   • Open your browser's extensions page (chrome://extensions, edge://extensions, or brave://extensions).
-   • Enable Developer mode (toggle in top-right or bottom-left depending on browser).
-   • Click Load unpacked.
-   • Select the generated dist/ folder inside your project directory.
+   - Open your browser's extensions page (chrome://extensions, edge://extensions, or brave://extensions).
+   - Enable Developer mode (toggle in top-right or bottom-left depending on browser).
+   - Click Load unpacked.
+   - Select the generated dist/ folder inside your project directory.
 
 ### Option 2: Set as Live Webpage New Tab
 If you prefer not to load unpacked extension files, you can use an extension like Custom New Tab URL and set your target URL to:
