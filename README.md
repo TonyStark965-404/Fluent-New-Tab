@@ -2,7 +2,7 @@
 
 A sleek, minimal, and lightweight New Tab replacement for Chromium-based browsers built following the **Windows 11 Fluent Design System**.
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-online-brightgreen?style=flat-square)](https://fluent-new-tab.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-online-brightgreen?style=flat-square)](https://tonystark965-404.github.io/Fluent-New-Tab/)
 
 ---
 
