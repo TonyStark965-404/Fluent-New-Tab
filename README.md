@@ -37,7 +37,7 @@ You can use **Fluent NewTab** in two ways:
 2. Install dependencies and build:
     npm install
     npm run build
-3. Load into your browser:
+4. Load into your browser:
    • Open your browser's extensions page (chrome://extensions, edge://extensions, or brave://extensions).
    • Enable Developer mode (toggle in top-right or bottom-left depending on browser).
    • Click Load unpacked.
