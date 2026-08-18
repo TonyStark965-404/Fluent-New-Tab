@@ -17,9 +17,8 @@ A sleek, minimal, and lightweight New Tab replacement for Chromium-based browser
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** React, JavaScript (ES6+), HTML5, CSS3
+- **Frontend:** React, JavaScript
 - **Build Tool:** [Vite](https://vitejs.dev/)
-- **Hosting & CD:** [Vercel](https://vercel.com/)
 - **Design Framework:** Windows 11 Fluent Design guidelines
 
 ---
@@ -31,7 +30,8 @@ You can use **Fluent NewTab** in two ways:
 ### Option 1: Load as a Local Browser Extension (Recommended)
 
 1. **Clone the repository:**
-   git clone [https://github.com/your-username/fluent-new-tab.git](https://github.com/TonyStark965-404/fluent-new-tab.git)
+   git clone [https://github.com/TonyStark965-404/fluent-new-tab.git](https://github.com/TonyStark965-404/fluent-new-tab.git)
+   ```
    cd fluent-new-tab
 
 2. Install dependencies and build:
@@ -52,8 +52,9 @@ If you prefer not to load unpacked extension files, you can use an extension lik
 To run and customize the project locally on your machine:
 
 1.Start development server:
+   ```
    npm run dev
-
+   ```
 2.Open http://localhost:5173 in your browser to view live updates as you edit the source code.
 
 🌐 Supported Browsers
