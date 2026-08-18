@@ -35,9 +35,10 @@ You can use **Fluent NewTab** in two ways:
    cd fluent-new-tab
 
 2. Install dependencies and build:
+    ```bash
     npm install
     npm run build
-4. Load into your browser:
+3. Load into your browser:
    • Open your browser's extensions page (chrome://extensions, edge://extensions, or brave://extensions).
    • Enable Developer mode (toggle in top-right or bottom-left depending on browser).
    • Click Load unpacked.
@@ -50,11 +51,10 @@ If you prefer not to load unpacked extension files, you can use an extension lik
 💻 Local Development
 To run and customize the project locally on your machine:
 
-Start development server:
+1.Start development server:
+   npm run dev
 
-Bash
-npm run dev
-Open http://localhost:5173 in your browser to view live updates as you edit the source code.
+2.Open http://localhost:5173 in your browser to view live updates as you edit the source code.
 
 🌐 Supported Browsers
 Compatible with all Chromium-based desktop browsers, including:
