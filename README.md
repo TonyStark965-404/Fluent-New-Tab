@@ -8,7 +8,7 @@ A sleek and minimal, New Tab replacement for Chromium-based browsers built follo
 
 ## ✨ Features
 
-- **Design Consistency:** The modern Fluent Design-based UI make it one with Windows itself and the minimalism makes it look clean.
+- **Design Consistency:** The modern Fluent Design-based UI makes it one with Windows itself and the minimalism makes it look clean.
 - **Really Cool Background Image:** Background Image taken from NASA APOD Server.
 - **Universal Compatibility:** Fully compatible with all major Chromium-based browsers.
 
@@ -28,7 +28,7 @@ There's 2 ways to do this.
 
 ### Option 1: Load it Locally from your PC (Recommended as the Page will then continue to work even without internet)
 
-1. **Clone the repository(or Download ZIP from Code):**
+1. Clone the repository(or Download ZIP from Code):
    ```
    git clone [https://github.com/TonyStark965-404/fluent-new-tab.git](https://github.com/TonyStark965-404/fluent-new-tab.git)
    cd fluent-new-tab
@@ -45,7 +45,7 @@ There's 2 ways to do this.
 ### Option 2: The Whole Lot Easier Way
 If you prefer not to load unpacked extension files or download stuff from the internet that can do stuff with your browser/PC(which is understandable), you can just go to settings (browser settings), then to start page, new tab page, and home page options (can't find it? search it), there just put the live demo url for all 3 and you're done.
 
-🌐 Supported Browsers
+## 🌐 Supported Browsers
 Compatible with literally every-single Chromium-based desktop browser in existence, including:
 
 ➡️ Microsoft Edge
@@ -54,12 +54,12 @@ Compatible with literally every-single Chromium-based desktop browser in existen
 
 ➡️ Brave 
 
-📝 Credits & Acknowledgments
+## 📝 Credits & Acknowledgments
 Design concepts, font formatting, and UI layout refined with assistance from Gemini AI.
 
 Built with heavy inspiration from Microsoft’s Fluent Design System(Pls don't sue me).
 
-🚫 List of issues/Stuff that needs work
+## 🚫 List of issues/Stuff that needs work
 - The Search Bar is set to only Google, and doesn't follow Browser default search engine.
 - You can't Pin any new sites to Pinned Sites (also the icons are actually emojis).
 - There's no Acrylis/Blur effect.
