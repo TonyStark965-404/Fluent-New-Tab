@@ -1,130 +1,278 @@
-import './style.css';
+import './style.css'
+const API_KEY=import.meta.env.VITE_NASA_API_KEY
+document.querySelector("#app").innerHTML=`
+<main class="app">
+<div class="wall"></div>
+<aside class="left">
+<button id="set" class="bi set" type="button">
+<span class="tit">Settings</span>
+<svg class="ic" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 64 64">
+<path fill="currentColor" d="M 29.054688 10 C 27.715688 10 26.571703 10.964203 26.345703 12.283203 L 25.763672 15.664062 C 25.457672 15.781062 25.152469 15.902156 24.855469 16.035156 L 22.058594 14.058594 C 20.830594 13.209594 19.383344 13.520328 18.527344 14.361328 L 14.361328 18.525391 C 13.414328 19.472391 13.288547 20.962641 14.060547 22.056641 L 16.035156 24.855469 C 15.901156 25.152469 15.781063 25.455719 15.664062 25.761719 L 12.283203 26.34375 C 10.963203 26.57075 10 27.715688 10 29.054688 L 10 34.945312 C 10 36.284312 10.964203 37.428297 12.283203 37.654297 L 15.664062 38.236328 C 15.781062 38.542328 15.902156 38.847531 16.035156 39.144531 L 14.058594 41.941406 C 13.286594 43.034406 13.414328 44.525656 14.361328 45.472656 L 18.525391 49.638672 C 19.609391 50.698672 21.124641 50.614453 22.056641 49.939453 L 24.855469 47.964844 C 25.152469 48.098844 25.455719 48.218938 25.761719 48.335938 L 26.34375 51.716797 C 26.57075 53.036797 27.715688 54 29.054688 54 L 34.945312 54 C 36.284312 54 37.428297 53.035797 37.654297 51.716797 L 38.236328 48.335938 C 38.542328 48.218937 38.847531 48.097844 39.144531 47.964844 L 41.941406 49.941406 C 42.766406 50.549406 44.343656 50.768672 45.472656 49.638672 L 49.638672 45.474609 C 50.585672 44.527609 50.711453 43.037359 49.939453 41.943359 L 47.964844 39.144531 C 48.098844 38.847531 48.218938 38.544281 48.335938 38.238281 L 51.716797 37.65625 C 53.036797 37.42925 54 36.284312 54 34.945312 L 54 29.054688 C 54 27.715688 53.035797 26.571703 51.716797 26.345703 L 48.335938 25.763672 C 48.218937 25.457672 48.097844 25.152469 47.964844 24.855469 L 49.941406 22.058594 C 50.713406 20.965594 50.585672 19.474344 49.638672 18.527344 L 45.474609 14.361328 C 44.417609 13.329328 42.952359 13.351547 41.943359 14.060547 L 39.144531 16.035156 C 38.847531 15.901156 38.544281 15.781063 38.238281 15.664062 L 37.65625 12.283203 C 37.42925 10.963203 36.284312 10 34.945312 10 L 29.054688 10 z M 30.214844 14 L 33.787109 14 C 33.848109 14 33.900156 14.043516 33.910156 14.103516 L 34.681641 18.589844 C 36.449641 19.224844 38.104844 19.894141 39.589844 20.619141 L 43.302734 17.996094 C 43.352734 17.961094 43.421844 17.966766 43.464844 18.009766 L 45.990234 20.537109 C 46.033234 20.580109 46.040859 20.647266 46.005859 20.697266 L 43.380859 24.412109 C 44.139859 26.017109 44.824156 27.649359 45.410156 29.318359 L 49.896484 30.091797 C 49.956484 30.101797 50 30.153844 50 30.214844 L 50 33.787109 C 50 33.848109 49.955531 33.900156 49.894531 33.910156 L 45.410156 34.681641 C 44.825156 36.350641 44.148859 37.985844 43.380859 39.589844 L 46.005859 43.304688 C 46.040859 43.354688 46.033234 43.421844 45.990234 43.464844 L 43.464844 45.992188 C 43.421844 46.035187 43.352734 46.040859 43.302734 46.005859 L 39.589844 43.382812 C 37.949844 44.153812 36.313641 44.829109 34.681641 45.412109 L 33.908203 49.896484 C 33.898203 49.956484 33.846156 50 33.785156 50 L 30.212891 50 C 30.151891 50 30.099844 49.955531 30.089844 49.894531 L 29.318359 45.410156 C 27.709359 44.851156 26.075156 44.184859 24.410156 43.380859 L 20.695312 46.005859 C 20.645312 46.040859 20.578156 46.033234 20.535156 45.990234 L 18.007812 43.464844 C 17.964813 43.421844 17.959141 43.352734 17.994141 43.302734 L 20.617188 39.589844 C 19.838187 37.924844 19.161891 36.288641 18.587891 34.681641 L 14.103516 33.908203 C 14.043516 33.898203 14 33.846156 14 33.785156 L 14 30.212891 C 14 30.151891 14.043516 30.100844 14.103516 30.089844 L 18.589844 29.316406 C 19.170844 27.680406 19.837141 26.045156 20.619141 24.410156 L 17.994141 20.695312 C 17.959141 20.645312 17.966766 20.578156 18.009766 20.535156 L 20.535156 18.007812 C 20.578156 17.964813 20.647266 17.959141 20.697266 17.994141 L 24.410156 20.617188 C 25.958156 19.874187 27.599359 19.201891 29.318359 18.587891 L 30.091797 14.103516 C 30.101797 14.043516 30.153844 14 30.214844 14 z M 32 23 C 27.029 23 23 27.029 23 32 C 23 36.971 27.029 41 32 41 C 36.971 41 41 36.971 41 32 C 41 27.029 36.971 23 32 23 z M 32 27 C 34.761 27 37 29.239 37 32 C 37 34.761 34.761 37 32 37 C 29.239 37 27 34.761 27 32 C 27 29.239 29.239 27 32 27 z"></path>
+</svg>
+</button>
+<div class="set-pan" aria-hidden="true">
+<div class="sethead">
+<span class="settit">Settings</span>
+</div>
+<div class="setcon">
+<section class="setit">
+<span class="setn">Appearance</span>
+<button id="tb" type="button">Dark Mode</button>
+</section>
+<section class="setit">
+<span class="setn">Search Engine</span>
+<button type="button">Google</button>
+</section>
+</div>
+</div>
+<section class="rs">
+<span class="head">Recent</span>
+<div class="rsl">
 
-// 1. Clock
-function updateClock() {
-  const now = new Date();
-  const hours = String(now.getHours()).padStart(2, '0');
-  const minutes = String(now.getMinutes()).padStart(2, '0');
-  
-  const clockEl = document.getElementById('clock-time');
-  const dateEl = document.getElementById('clock-date');
-
-  if (clockEl) clockEl.textContent = `${hours}:${minutes}`;
-  if (dateEl) {
-    const options = { weekday: 'long', month: 'long', day: 'numeric' };
-    dateEl.textContent = now.toLocaleDateString(undefined, options);
-  }
-}
-setInterval(updateClock, 1000);
-updateClock();
-
-// 2. Search
-document.getElementById('search-input')?.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
-    const query = e.target.value.trim();
-    if (query) {
-      if (query.startsWith('http://') || query.startsWith('https://')) {
-        window.location.href = query;
-      } else {
-        window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
-      }
+</div>
+</section>
+</aside>
+<section class="mcon">
+<div class="gm">
+<h1>Good morning</h1>
+</div>
+<div class="sb">
+<svg class="si" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 64 64">
+<path fill="currentColor" d="M 27 9 C 17.075 9 9 17.075 9 27 C 9 36.925 17.075 45 27 45 C 31.129213 45 34.9263 43.587367 37.966797 41.240234 L 51.048828 54.322266 C 51.952828 55.226266 53.418266 55.226266 54.322266 54.322266 C 55.226266 53.418266 55.226266 51.952828 54.322266 51.048828 L 41.240234 37.966797 C 43.587367 34.9263 45 31.129213 45 27 C 45 17.075 36.925 9 27 9 z M 27 13 C 34.719 13 41 19.281 41 27 C 41 34.719 34.719 41 27 41 C 19.281 41 13 34.719 13 27 C 13 19.281 19.281 13 27 13 z"></path>
+</svg>
+<input
+type="text"
+placeholder="Search the web (Ctrl+K to start typing)"
+aria-label="Search the web (Ctrl+K to start typing)"
+>
+</div>
+</section>
+<aside class="wigr">
+<section class="wig cl-wig">
+<span class="wig-tit">Clock</span>
+<div class="an-cl">
+<div class="hand hr"></div>
+<div class="hand min"></div>
+<div class="cc"></div>
+</div>
+</section>
+<section class="wig cal-wig">
+<span class="wig-tit">Calendar</span>
+<div class="calc">
+<span class="cal-mon">August 2026</span>
+<span class="cal-d">21</span>
+<span class="cal-wd">Friday</span>
+</div>
+</section>
+<section class="wig wall-wig">
+<span class="wig-tit" id="wall-tit">Today's APOD</span>
+<div class="wallc">
+<span class="walln" id=walltit>Loading...</span>
+</div>
+</section>
+</aside>
+<nav id="booty" class="booty" aria-label="Pinned Sites">
+<button id="ditadd" class="dit add" type="button">
+<svg id="dic" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 64 64">
+<path fill="currentColor" d="M 32 10 C 19.85 10 10 19.85 10 32 C 10 44.15 19.85 54 32 54 C 44.15 54 54 44.15 54 32 C 54 19.85 44.15 10 32 10 z M 32 14 C 41.941 14 50 22.059 50 32 C 50 41.941 41.941 50 32 50 C 22.059 50 14 41.941 14 32 C 14 22.059 22.059 14 32 14 z M 32 22 C 30.895 22 30 22.896 30 24 L 30 30 L 24 30 C 22.896 30 22 30.895 22 32 C 22 33.105 22.896 34 24 34 L 30 34 L 30 40 C 30 41.104 30.895 42 32 42 C 33.105 42 34 41.104 34 40 L 34 34 L 40 34 C 41.104 34 42 33.105 42 32 C 42 30.895 41.104 30 40 30 L 34 30 L 34 24 C 34 22.896 33.105 22 32 22 z"></path>
+</svg></button>
+</nav>
+<div id="sm" class="sm" aria-hidden="true">
+<button id="ed" type="button">Edit</button>
+<button id="del" type="button">Delete</button>
+</div>
+</main>
+`;
+const waLL=document.querySelector(".wall")
+const wallTit=document.querySelector("#wall-tit")
+fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
+.then(response=>response.json())
+.then(data=>{
+    console.log(data)
+    console.log(data.media_type)
+    document.querySelector("#walltit").textContent=data.title
+    if(data.media_type==="image"){
+        waLL.style.backgroundImage=`url("${data.url}")`
+        wallTit.textContent="Today's APOD (Wallpaper)"
     }
-  }
-});
-
-// 3. NASA Wallpaper
-const NASA_API_KEY = import.meta.env.VITE_NASA_API_KEY || 'DEMO_KEY';
-
-async function fetchNasaWallpaper() {
-  const titleEl = document.getElementById('time-coded');
-  const descEl = document.getElementById('coding-project');
-
-  try {
-    const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`);
-    if (!response.ok) throw new Error('NASA API error');
-
-    const data = await response.json();
-    const imageUrl = data.hdurl || data.url;
-
-    if (data.media_type === 'image' && imageUrl) {
-      document.body.style.backgroundImage = `url('${imageUrl}')`;
+})
+const seT=document.querySelector("#set")
+const setPan=document.querySelector(".set-pan")
+seT.addEventListener("click",()=>{
+    const isOpen=setPan.classList.toggle("open")
+    setPan.setAttribute("aria-hidden",String(!isOpen))
+})
+const DM=document.querySelector("#tb")
+DM.addEventListener("click",()=>{
+    const d=document.body.classList.toggle("dk")
+    localStorage.setItem("th",d?"dk":"lt")
+    DM.textContent=d?"Light Mode":"Dark Mode"
+})
+const Th=localStorage.getItem("th")
+if(Th==="dk"){
+    document.body.classList.add("dk")
+    DM.textContent="Light Mode"
+}
+const sIn=document.querySelector(".sb input")
+sIn.addEventListener("keydown",(event)=>{
+    if(event.key!=="Enter")return
+    const q=sIn.value.trim()
+    if(!q)return
+    window.location.href=`https://www.google.com/search?q=${encodeURIComponent(q)}`
+})
+window.addEventListener("pageshow",()=>{
+    sIn.value=""})
+document.addEventListener("keydown",(event)=>{
+    if(event.ctrlKey&&event.key.toLocaleLowerCase()==="k"){
+        event.preventDefault()
+        sIn.focus()
     }
-
-    if (titleEl) titleEl.textContent = data.title || 'Astronomy Picture of the Day';
-    if (descEl) descEl.textContent = data.explanation || 'Daily picture provided by NASA.';
-
-  } catch (err) {
-    console.error('NASA Fetch Error:', err);
-    if (titleEl) titleEl.textContent = 'Astronomy Picture of the Day';
-    if (descEl) descEl.textContent = 'Unable to load NASA wallpaper. Verify your VITE_NASA_API_KEY.';
-  }
+})
+const piSS=document.querySelector("#booty")
+const adS=document.querySelector("#ditadd")
+let s=JSON.parse(localStorage.getItem("piSS")||"[]")
+let r=JSON.parse(localStorage.getItem("r")||"[]")
+function rpiSS(){
+    piSS.querySelectorAll(".stit").forEach(s=>s.remove())
+    s.forEach((s,index)=>{
+        const lk=document.createElement("a")
+        lk.className="dit stit"
+        lk.href=s.url
+        lk.title=s.name
+        lk.addEventListener("click",()=>{
+            aR(s)
+        })
+        const ic=document.createElement("img")
+        ic.className="dic"
+        ic.src=`https://www.google.com/s2/favicons?domain=${new URL(s.url).hostname}&sz=64`
+        ic.alt=""
+        lk.appendChild(ic)
+        lk.addEventListener("contextmenu",(event)=>{
+            event.preventDefault()
+            oSM(event,index)
+        })
+        piSS.insertBefore(lk,adS)
+    })
 }
-fetchNasaWallpaper();
-
-// 4. Live Weather via Geolocation & Open-Meteo
-async function fetchWeather(lat, lon) {
-  try {
-    const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`);
-    const data = await res.json();
-    const temp = Math.round(data.current_weather.temperature);
-    const code = data.current_weather.weathercode;
-
-    document.getElementById('weather-temp').textContent = `${temp}°C`;
-    document.getElementById('weather-desc').textContent = getWeatherCondition(code);
-  } catch (e) {
-    document.getElementById('weather-desc').textContent = 'Unavailable';
-  }
+adS.addEventListener("click",()=>{
+    const n=prompt("Site name:")
+    if(!n)return
+    const ur=prompt("Site URL:")
+    if(!ur)return
+    const hur=ur.startsWith("http")?ur:`https://${ur}`
+    s.push({
+        name,url:hur})
+    localStorage.setItem("piSS",JSON.stringify(s))
+    rpiSS()
+})
+rpiSS()
+const sM=document.querySelector("#sm")
+const eS=document.querySelector("#ed")
+const dS=document.querySelector("#del")
+let sS=null
+function oSM(event,index){
+    sS=index
+    sM.style.left=`${event.clientX}px`
+    sM.style.top=`${event.clientY}px`
+    sM.classList.add("open")
+    sM.setAttribute("aria-hidden","false")
 }
-
-function getWeatherCondition(code) {
-  if (code === 0) return 'Clear Sky';
-  if (code <= 3) return 'Partly Cloudy';
-  if (code <= 48) return 'Foggy';
-  if (code <= 67) return 'Rainy';
-  if (code <= 77) return 'Snowy';
-  return 'Thunderstorm';
+function cSM(){
+    sS=null
+    sM.classList.remove("open")
+    sM.setAttribute("aria-hidden","true")
 }
-
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(
-    (pos) => fetchWeather(pos.coords.latitude, pos.coords.longitude),
-    () => fetchWeather(28.61, 77.20) // Default fallback coordinates
-  );
-} else {
-  fetchWeather(28.61, 77.20);
-}
-
-// 5. Recent Sites Dropdown
-const recentBtn = document.getElementById('recent-btn');
-const recentMenu = document.getElementById('recent-menu');
-const recentList = document.getElementById('recent-list');
-
-recentBtn?.addEventListener('click', () => {
-  recentMenu?.classList.toggle('hidden');
-});
-
-// Hide dropdown when clicking outside
-document.addEventListener('click', (e) => {
-  if (!recentBtn?.contains(e.target) && !recentMenu?.contains(e.target)) {
-    recentMenu?.classList.add('hidden');
-  }
-});
-
-// Load Chrome Top Sites or render fallback
-if (typeof chrome !== 'undefined' && chrome.topSites) {
-  chrome.topSites.get((sites) => {
-    if (recentList) {
-      recentList.innerHTML = sites.slice(0, 5).map(site => `
-        <a href="${site.url}" class="flyout-item">
-          <span>🌐</span>
-          <span>${site.title || site.url}</span>
-        </a>
-      `).join('');
+eS.addEventListener("click",()=>{
+    if(sS===null)return
+    const si=s[sS]
+    const n=prompt("Site name:")
+    if(!n)return
+    const ur=prompt("Site URL:")
+    if(!ur)return
+    const hur=ur.startsWith("http")?ur:`https://${ur}`
+    localStorage.setItem("piSS",JSON.stringify(s))
+    si.name=n
+    si.url=hur
+    cSM()
+    rpiSS()
+})
+dS.addEventListener("click",()=>{
+    if(sS===null)return
+    s.splice(sS,1)
+    localStorage.setItem("piSS",JSON.stringify(s))
+    cSM()
+    rpiSS()
+})
+document.addEventListener("click",(event)=>{
+    if(!sM.contains(event.target)){
+        cSM()
     }
-  });
-} else if (recentList) {
-  recentList.innerHTML = `
-    <a href="https://google.com" class="flyout-item"><span>🌐</span> Google</a>
-    <a href="https://github.com" class="flyout-item"><span>🐙</span> GitHub</a>
-  `;
+})
+function rR(){
+    const rSl=document.querySelector(".rsl")
+    rSl.innerHTML=""
+    r.forEach(s=>{
+        const lk=document.createElement("a")
+        lk.className="ri"
+        lk.href=s.url
+        lk.title=s.name
+        const ic=document.createElement("img")
+        ic.className="dic"
+        ic.src=`https://www.google.com/s2/favicons?domain=${new URL(s.url).hostname}&sz=64`
+        ic.alt=""
+        lk.appendChild(ic)
+        rSl.appendChild(lk)
+    })
 }
+function aR(s){
+    const ex=r.findIndex(item=>item.url===s.url)
+    if(ex!==-1){
+        r.splice(ex,1)
+    }
+    r.unshift(s)
+    if (r.length>4){
+        r.splice(4)
+    }
+    localStorage.setItem("r",JSON.stringify(r))
+}
+rR()
+function gD(){
+    const now=new Date()
+    return{
+        hr:now.getHours(),mon:now.toLocaleDateString(undefined,{month:"long"}),yr:now.getFullYear(),dy:now.getDate(),wd:now.toLocaleDateString(undefined,{weekday:"long"})
+    }
+}
+function uGh(){
+    const da=gD()
+    let grr
+    if(da.hr>=5 && da.hr<12){
+        grr="Good morning"
+    }
+    else if(da.hr>=12 && da.hr<17){
+        grr="Good afternoon"
+    }
+    else if(da.hr>=17 && da.hr<21){
+        grr="Good evening"
+    }
+    else{
+        grr="Good night"
+    }
+    document.querySelector(".gm h1").textContent=grr
+}
+    uGh()
+function uC(){
+    const da=gD()
+    const now=new Date()
+    document.querySelector(".cal-mon").textContent=`${da.mon} ${da.yr}`
+    document.querySelector(".cal-d").textContent=`${da.dy}`
+    document.querySelector(".cal-wd").textContent=`${da.wd}`
+    const secs=now.getSeconds()
+    const mins=now.getMinutes()
+    const hrs=now.getHours()
+    const minang=mins*6+secs*0.1
+    const hrang=(hrs%12)*30+mins*0.5
+    document.querySelector(".min").style.transform=`translateX(-50%) rotate(${minang}deg)`
+    document.querySelector(".hr").style.transform=`translateX(-50%) rotate(${hrang}deg)`
+}
+uC()
+setInterval(uC,1000)
