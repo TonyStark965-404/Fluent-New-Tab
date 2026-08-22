@@ -5,6 +5,7 @@ A clean (kinda) customizable New Tab page, inspired heavily by Microsoft Fluent 
 ## How does it look?
 ### Light Mode:
 <img width="1920" height="1032" alt="LMScrnSht" src="https://github.com/user-attachments/assets/e3c21368-0f78-4eda-8a63-6473f2f8c5a9" />
+
 ### Dark Mode:
 <img width="1920" height="1080" alt="DMScrnSht" src="https://github.com/user-attachments/assets/dc68ec45-37df-41ac-b2dc-4e53aee7fac4" />
 
