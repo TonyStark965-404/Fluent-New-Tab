@@ -50,3 +50,13 @@ Fluent New Tab is built with Vite and JavaScript, where user preferences and pin
 ## Whom to Credit for the assets?
 - [Mykyta Martynenko](https://unsplash.com/@prostotakphoto) on Unsplash for the Default leaves wallpaper
 - [Icons8](https://icons8.com) for the "Settings" and "+" icons
+
+## Are There some issues?
+Yes
+- Your previous query may show up for a moment if you do a search and go back
+- There is no support for a Video wallpaper provided by NASA APOD, so it falls back to the default wallpaper
+- The APOD server takes some time to connect, so you might see a blank background for a couple of seconds
+- Search Engine is stuck to Google
+- In order to pin a site, you need to put its full url. For example, if you want to pin Google, you write 
+Site name: Google
+Site URL: https://www.google.com
