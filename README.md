@@ -33,17 +33,19 @@ A clean (kinda) customizable New Tab page, inspired heavily by Microsoft Fluent 
    npm install
    npm run dev
 ```
-   You'll find that the page will be running at a localhost:####, open it in your browser to see.
-   P.S.- This requires a NASA API Key, and a .env file, so you'll need to get one for yourself and put it in a .env file with the syntax from .env.example(already added here)
-   [![Get your own NASA API here](https://img.shields.io/badge/NASA-api-blue?style=for-the-badge)](https://api.nasa.gov/)
-   To create an unpacked extension:
+You'll find that the page will be running at a localhost:####, open it in your browser to see.
+P.S.- This requires a NASA API Key, and a .env file, so you'll need to get one for yourself and put it in a .env file with the syntax from .env.example(already added here)
+
+[![Get your own NASA API here](https://img.shields.io/badge/NASA-api-blue?style=for-the-badge)](https://api.nasa.gov/)
+
+To create an unpacked extension:
    ```bash
    npm run build
 ```
    and follow the steps to install my extension normally but this time select the generated dist folder in your project directory.
    
 ## How does it work?
-   Fluent New Tab is built with Vite and JavaScript, where user preferences and pinned/recent sites are stored locally using localStorage. The daily wallpaper and APOD information are fetched using NASA's APOD API. The website logos for the pinned/recent sites are fetched from Google.
+Fluent New Tab is built with Vite and JavaScript, where user preferences and pinned/recent sites are stored locally using localStorage. The daily wallpaper and APOD information are fetched using NASA's APOD API. The website logos for the pinned/recent sites are fetched from Google.
    
 ## Whom to Credit for the assets?
 - [Mykyta Martynenko](https://unsplash.com/@prostotakphoto) on Unsplash for the Default leaves wallpaper
