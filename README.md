@@ -9,7 +9,7 @@ A clean (kinda) customizable New Tab page, inspired heavily by Microsoft Fluent 
 ### Dark Mode:
 <img width="1920" height="1080" alt="DMScrnSht" src="https://github.com/user-attachments/assets/dc68ec45-37df-41ac-b2dc-4e53aee7fac4" />
 
-[![Give it a Try](https://img.shields.io/badge/Live_Demo-online-brightgreen?style=flat-square)](https://tonystark965-404.github.io/Fluent-New-Tab/)
+[![Give it a Try]([(https://img.shields.io/badge/test-drive-brightgreen?style=for-the-badge))](https://tonystark965-404.github.io/Fluent-New-Tab/)
 
 ## How to install this as an extension?
 - Download the latest Release and extract it to wherever you want
