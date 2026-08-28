@@ -2,12 +2,14 @@
 
 A clean (kinda) customizable New Tab page, inspired heavily by Microsoft Fluent Design System and macOS Sequoia (the one that came before Tahoe). 
 
+## Version 2.0 is out now!! Download it from the Releases section
+
 ## How does it look?
 ### Light Mode:
-<img width="1920" height="1032" alt="LMScrnSht" src="https://github.com/user-attachments/assets/e3c21368-0f78-4eda-8a63-6473f2f8c5a9" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8c8d5a75-b844-43b4-a9aa-835d49de8aa0" />
 
 ### Dark Mode:
-<img width="1920" height="1080" alt="DMScrnSht" src="https://github.com/user-attachments/assets/dc68ec45-37df-41ac-b2dc-4e53aee7fac4" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e7223550-ad78-4dcd-b896-874265da6f81" />
 
 [![Give it a Try](https://img.shields.io/badge/test-drive-brightgreen?style=for-the-badge)](https://tonystark965-404.github.io/Fluent-New-Tab/)
 
@@ -19,12 +21,16 @@ A clean (kinda) customizable New Tab page, inspired heavily by Microsoft Fluent 
 ## What features does it have?
 - A consistent design language, inspired by Windows 11 and MacOS Sequoia
 - Widgets showcasing current date and time
+- Live Weather
 - Dock style Recent and Pinned Sites
+- Custom Accent Color support with unlimited options
+- Recent Searches and Search suggestions while typing
+- Supports 4 Search Engines - Google, Bing, Yahoo and DuckDuckGo
 - Another widget that tells you about Today's Astronomy Picture of The Day (provided by NASA)
-- Uses NASA APOD as wallpaper, so it's updated daily (unless the APOD is a video, then you only get to know about it)
+- Uses NASA APOD as wallpaper (now toggleable), so it's updated daily (unless the APOD is a video, then you only get to know about it)
 - "Ctrl+K" to instantly activate the Search Bar, so you can start searching without even touching your mouse.
 - No special browser permissions needed
-- 
+  
 ## How can I run it locally and modify it?
    Easy, just do this:
    ```bash
@@ -53,10 +59,5 @@ Fluent New Tab is built with Vite and JavaScript, where user preferences and pin
 
 ## Are There some issues?
 Yes
-- Your previous query may show up for a moment if you do a search and go back
 - There is no support for a Video wallpaper provided by NASA APOD, so it falls back to the default wallpaper
 - The APOD server takes some time to connect, so you might see a blank background for a couple of seconds
-- Search Engine is stuck to Google
-- In order to pin a site, you need to put its full url. For example, if you want to pin Google, you write 
-Site name: Google
-Site URL: https://www.google.com
