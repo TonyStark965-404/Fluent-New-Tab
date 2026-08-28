@@ -330,7 +330,7 @@ body{
   z-index:1000;
   visibility: hidden;
   pointer-events: none;
-    backdrop-filter:blur(20px) saturate(140%);
+  backdrop-filter:blur(20px) saturate(140%);
   -webkit-backdrop-filter:blur(20px) saturate(140%);
   transition: opacity 120ms ease,
   transform 120ms ease,
