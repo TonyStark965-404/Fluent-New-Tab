@@ -158,6 +158,10 @@ let rs=JSON.parse(localStorage.getItem("rs")||"[]")
 const sRP=document.querySelector(".srp")
 function rS(){
     sRP.innerHTML=""
+    if(!rs.length){
+        sRP.classList.remove("open")
+        sRP.setAttribute("aria-hidden","true")
+    }
     rs.slice(0,4).forEach(q=>{
         const b=document.createElement("button")
         b.className="sri"
@@ -168,6 +172,8 @@ function rS(){
         })
         sRP.appendChild(b)
     })
+    sRP.classList.add("open")
+    sRP.setAttribute("aria-hidden","false")
 }
 function aS(q){
     q=q.trim()
@@ -180,8 +186,6 @@ sIn.addEventListener("focus",()=>{
     if(sIn.value.trim()){
         sSu(sIn.value)
     }else{rS()}
-    sRP.classList.add("open")
-    sRP.setAttribute("aria-hidden","false")
 })
 document.addEventListener("click",(event)=>{
     if(!event.target.closest(".sb")){
