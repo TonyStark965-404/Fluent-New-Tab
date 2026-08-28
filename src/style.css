@@ -647,7 +647,7 @@ body{
   background:var(--surface-sec);
   border:1px solid var(--border);
   box-shadow:var(--shadow);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px)!important;
   -webkit-backdrop-filter: blur(20px);
   z-index:10;
   opacity:0;
