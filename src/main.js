@@ -10,6 +10,12 @@ document.querySelector("#app").innerHTML=`
 <path fill="currentColor" d="M 29.054688 10 C 27.715688 10 26.571703 10.964203 26.345703 12.283203 L 25.763672 15.664062 C 25.457672 15.781062 25.152469 15.902156 24.855469 16.035156 L 22.058594 14.058594 C 20.830594 13.209594 19.383344 13.520328 18.527344 14.361328 L 14.361328 18.525391 C 13.414328 19.472391 13.288547 20.962641 14.060547 22.056641 L 16.035156 24.855469 C 15.901156 25.152469 15.781063 25.455719 15.664062 25.761719 L 12.283203 26.34375 C 10.963203 26.57075 10 27.715688 10 29.054688 L 10 34.945312 C 10 36.284312 10.964203 37.428297 12.283203 37.654297 L 15.664062 38.236328 C 15.781062 38.542328 15.902156 38.847531 16.035156 39.144531 L 14.058594 41.941406 C 13.286594 43.034406 13.414328 44.525656 14.361328 45.472656 L 18.525391 49.638672 C 19.609391 50.698672 21.124641 50.614453 22.056641 49.939453 L 24.855469 47.964844 C 25.152469 48.098844 25.455719 48.218938 25.761719 48.335938 L 26.34375 51.716797 C 26.57075 53.036797 27.715688 54 29.054688 54 L 34.945312 54 C 36.284312 54 37.428297 53.035797 37.654297 51.716797 L 38.236328 48.335938 C 38.542328 48.218937 38.847531 48.097844 39.144531 47.964844 L 41.941406 49.941406 C 42.766406 50.549406 44.343656 50.768672 45.472656 49.638672 L 49.638672 45.474609 C 50.585672 44.527609 50.711453 43.037359 49.939453 41.943359 L 47.964844 39.144531 C 48.098844 38.847531 48.218938 38.544281 48.335938 38.238281 L 51.716797 37.65625 C 53.036797 37.42925 54 36.284312 54 34.945312 L 54 29.054688 C 54 27.715688 53.035797 26.571703 51.716797 26.345703 L 48.335938 25.763672 C 48.218937 25.457672 48.097844 25.152469 47.964844 24.855469 L 49.941406 22.058594 C 50.713406 20.965594 50.585672 19.474344 49.638672 18.527344 L 45.474609 14.361328 C 44.417609 13.329328 42.952359 13.351547 41.943359 14.060547 L 39.144531 16.035156 C 38.847531 15.901156 38.544281 15.781063 38.238281 15.664062 L 37.65625 12.283203 C 37.42925 10.963203 36.284312 10 34.945312 10 L 29.054688 10 z M 30.214844 14 L 33.787109 14 C 33.848109 14 33.900156 14.043516 33.910156 14.103516 L 34.681641 18.589844 C 36.449641 19.224844 38.104844 19.894141 39.589844 20.619141 L 43.302734 17.996094 C 43.352734 17.961094 43.421844 17.966766 43.464844 18.009766 L 45.990234 20.537109 C 46.033234 20.580109 46.040859 20.647266 46.005859 20.697266 L 43.380859 24.412109 C 44.139859 26.017109 44.824156 27.649359 45.410156 29.318359 L 49.896484 30.091797 C 49.956484 30.101797 50 30.153844 50 30.214844 L 50 33.787109 C 50 33.848109 49.955531 33.900156 49.894531 33.910156 L 45.410156 34.681641 C 44.825156 36.350641 44.148859 37.985844 43.380859 39.589844 L 46.005859 43.304688 C 46.040859 43.354688 46.033234 43.421844 45.990234 43.464844 L 43.464844 45.992188 C 43.421844 46.035187 43.352734 46.040859 43.302734 46.005859 L 39.589844 43.382812 C 37.949844 44.153812 36.313641 44.829109 34.681641 45.412109 L 33.908203 49.896484 C 33.898203 49.956484 33.846156 50 33.785156 50 L 30.212891 50 C 30.151891 50 30.099844 49.955531 30.089844 49.894531 L 29.318359 45.410156 C 27.709359 44.851156 26.075156 44.184859 24.410156 43.380859 L 20.695312 46.005859 C 20.645312 46.040859 20.578156 46.033234 20.535156 45.990234 L 18.007812 43.464844 C 17.964813 43.421844 17.959141 43.352734 17.994141 43.302734 L 20.617188 39.589844 C 19.838187 37.924844 19.161891 36.288641 18.587891 34.681641 L 14.103516 33.908203 C 14.043516 33.898203 14 33.846156 14 33.785156 L 14 30.212891 C 14 30.151891 14.043516 30.100844 14.103516 30.089844 L 18.589844 29.316406 C 19.170844 27.680406 19.837141 26.045156 20.619141 24.410156 L 17.994141 20.695312 C 17.959141 20.645312 17.966766 20.578156 18.009766 20.535156 L 20.535156 18.007812 C 20.578156 17.964813 20.647266 17.959141 20.697266 17.994141 L 24.410156 20.617188 C 25.958156 19.874187 27.599359 19.201891 29.318359 18.587891 L 30.091797 14.103516 C 30.101797 14.043516 30.153844 14 30.214844 14 z M 32 23 C 27.029 23 23 27.029 23 32 C 23 36.971 27.029 41 32 41 C 36.971 41 41 36.971 41 32 C 41 27.029 36.971 23 32 23 z M 32 27 C 34.761 27 37 29.239 37 32 C 37 34.761 34.761 37 32 37 C 29.239 37 27 34.761 27 32 C 27 29.239 29.239 27 32 27 z"></path>
 </svg>
 </button>
+<section class="rs">
+<span class="head">Recent</span>
+<div class="rsl">
+</div>
+</section>
+</aside>
 <div class="set-pan" aria-hidden="true">
 <div class="sethead">
 <span class="settit">Settings</span>
@@ -17,25 +23,37 @@ document.querySelector("#app").innerHTML=`
 <div class="setcon">
 <section class="setit">
 <span class="setn">Appearance</span>
-<button id="tb" type="button">Dark Mode</button>
+<div class="setbtn-row"><button id="tb" class="setbtn" type="button">Dark Mode</button><button id="aw" class="setbtn" type="button">APOD Wall</button></div>
 </section>
 <section class="setit">
 <span class="setn">Search Engine</span>
-<button type="button">Google</button>
+<div class="sl-wr">
+<button id="sen" class="sl" type="button">
+<span id="sen-n">Google</span>
+<span class="slar">▾</span>
+</button>
+<div class="sem" id="sem">
+<button type="button" data-value="ggl">Google</button>
+<button type="button" data-value="bi">Bing</button>
+<button type="button" data-value="yh">Yahoo</button>
+<button type="button" data-value="ddg">DuckDuckGo</button>
+</div></div>
 </section>
-</div>
-</div>
-<section class="rs">
-<span class="head">Recent</span>
-<div class="rsl">
-
-</div>
+<section class="setit">
+<span class="setn">Accent color</span>
+<input id="acc" type="text" value="#4f8cff" maxlength="7" placeholder="Enter hex (Default:#4f8cff);" spellcheck="false">
 </section>
-</aside>
+<section class="setit">
+<span class="setn">Weather</span>
+<input id="wthcit" type="text" placeholder="Enter a city" spellcheck="false"></section>
+</div>
+</div>
 <section class="mcon">
 <div class="gm">
 <h1>Good morning</h1>
+<p class="wth">Loading...</p>
 </div>
+<div class="sw">
 <div class="sb">
 <svg class="si" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 64 64">
 <path fill="currentColor" d="M 27 9 C 17.075 9 9 17.075 9 27 C 9 36.925 17.075 45 27 45 C 31.129213 45 34.9263 43.587367 37.966797 41.240234 L 51.048828 54.322266 C 51.952828 55.226266 53.418266 55.226266 54.322266 54.322266 C 55.226266 53.418266 55.226266 51.952828 54.322266 51.048828 L 41.240234 37.966797 C 43.587367 34.9263 45 31.129213 45 27 C 45 17.075 36.925 9 27 9 z M 27 13 C 34.719 13 41 19.281 41 27 C 41 34.719 34.719 41 27 41 C 19.281 41 13 34.719 13 27 C 13 19.281 19.281 13 27 13 z"></path>
@@ -46,6 +64,7 @@ placeholder="Search the web (Ctrl+K to start typing)"
 aria-label="Search the web (Ctrl+K to start typing)"
 >
 </div>
+<div class="srp" aria-hidden="true"></div></div>
 </section>
 <aside class="wigr">
 <section class="wig cl-wig">
@@ -73,7 +92,7 @@ aria-label="Search the web (Ctrl+K to start typing)"
 </aside>
 <nav id="booty" class="booty" aria-label="Pinned Sites">
 <button id="ditadd" class="dit add" type="button">
-<svg id="dic" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 64 64">
+<svg id="dic" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 64 64">
 <path fill="currentColor" d="M 32 10 C 19.85 10 10 19.85 10 32 C 10 44.15 19.85 54 32 54 C 44.15 54 54 44.15 54 32 C 54 19.85 44.15 10 32 10 z M 32 14 C 41.941 14 50 22.059 50 32 C 50 41.941 41.941 50 32 50 C 22.059 50 14 41.941 14 32 C 14 22.059 22.059 14 32 14 z M 32 22 C 30.895 22 30 22.896 30 24 L 30 30 L 24 30 C 22.896 30 22 30.895 22 32 C 22 33.105 22.896 34 24 34 L 30 34 L 30 40 C 30 41.104 30.895 42 32 42 C 33.105 42 34 41.104 34 40 L 34 34 L 40 34 C 41.104 34 42 33.105 42 32 C 42 30.895 41.104 30 40 30 L 34 30 L 34 24 C 34 22.896 33.105 22 32 22 z"></path>
 </svg></button>
 </nav>
@@ -85,17 +104,37 @@ aria-label="Search the web (Ctrl+K to start typing)"
 `;
 const waLL=document.querySelector(".wall")
 const wallTit=document.querySelector("#wall-tit")
-fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
-.then(response=>response.json())
-.then(data=>{
-    console.log(data)
-    console.log(data.media_type)
-    document.querySelector("#walltit").textContent=data.title
-    if(data.media_type==="image"){
-        waLL.style.backgroundImage=`url("${data.url}")`
-        wallTit.textContent="Today's APOD (Wallpaper)"
+const aw=document.querySelector("#aw")
+async function lAP(){
+    fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
+    .then(response=>response.json())
+    .then(data=>{
+        console.log(data)
+        console.log(data.media_type)
+        document.querySelector("#walltit").textContent=data.title
+        if(data.media_type==="image"){
+            waLL.style.backgroundImage=`url("${data.url}")`
+            wallTit.textContent="Today's APOD (Wallpaper)"
+        }
+    })
+}
+aw.addEventListener("click", () => {
+    const ebl = localStorage.getItem("apod") !== "off";
+    const neS = !ebl;
+    localStorage.setItem("apod", neS? "on" : "off");
+    aw.classList.toggle("active", neS);
+    if (neS) {
+        lAP();
+    } else {
+        waLL.style.backgroundImage = "url('./walls/wall1.jpg')";
+        wallTit.textContent = "Today's APOD";
     }
-})
+});
+
+if(localStorage.getItem("apod")!=="off"){
+    aw.classList.add("active")
+    lAP()
+}
 const seT=document.querySelector("#set")
 const setPan=document.querySelector(".set-pan")
 seT.addEventListener("click",()=>{
@@ -106,20 +145,69 @@ const DM=document.querySelector("#tb")
 DM.addEventListener("click",()=>{
     const d=document.body.classList.toggle("dk")
     localStorage.setItem("th",d?"dk":"lt")
-    DM.textContent=d?"Light Mode":"Dark Mode"
+    DM.classList.toggle("active",d)
+
 })
 const Th=localStorage.getItem("th")
 if(Th==="dk"){
     document.body.classList.add("dk")
-    DM.textContent="Light Mode"
+    DM.classList.add("active")
 }
 const sIn=document.querySelector(".sb input")
+let rs=JSON.parse(localStorage.getItem("rs")||"[]")
+const sRP=document.querySelector(".srp")
+function rS(){
+    sRP.innerHTML=""
+    rs.slice(0,4).forEach(q=>{
+        const b=document.createElement("button")
+        b.className="sri"
+        b.textContent=q
+        b.addEventListener("click",()=>{
+            sIn.value=q
+            sIn.dispatchEvent(new KeyboardEvent("keydown",{key:"Enter"}))
+        })
+        sRP.appendChild(b)
+    })
+}
+function aS(q){
+    q=q.trim()
+    if(!q) return
+    rs=rs.filter(item=>item.toLowerCase() !==q.toLowerCase())
+    rs.unshift(q)
+    localStorage.setItem("rs",JSON.stringify(rs))
+}
+sIn.addEventListener("focus",()=>{
+    if(sIn.value.trim()){
+        sSu(sIn.value)
+    }else{rS()}
+    sRP.classList.add("open")
+    sRP.setAttribute("aria-hidden","false")
+})
+document.addEventListener("click",(event)=>{
+    if(!event.target.closest(".sb")){
+        sRP.classList.remove("open")
+        sRP.setAttribute("aria-hidden","true")
+    }
+})
+const sU={ggl:"https://www.google.com/search?q=",bi:"https://www.bing.com/search?q=",yh:"https://search.yahoo.com/search?p=",ddg:"https://www.duckduckgo.com/search?q="}
 sIn.addEventListener("keydown",(event)=>{
     if(event.key!=="Enter")return
     const q=sIn.value.trim()
     if(!q)return
-    window.location.href=`https://www.google.com/search?q=${encodeURIComponent(q)}`
+    aS(q)
+    rS()
+    const eng=localStorage.getItem("sEng")||"ggl"
+    window.location.href=`${sU[eng]}${encodeURIComponent(q)}`
 })
+function uSP(){
+    if(window.innerWidth<=700){
+        sIn.placeholder="Search the web"
+    } else{
+        sIn.placeholder="Search the web (Ctrl+K to start typing)"
+    }
+}
+uSP()
+window.addEventListener("resize",uSP)
 window.addEventListener("pageshow",()=>{
     sIn.value=""})
 document.addEventListener("keydown",(event)=>{
@@ -208,6 +296,12 @@ document.addEventListener("click",(event)=>{
         cSM()
     }
 })
+document.addEventListener("click",(event)=>{
+    if(!setPan.contains(event.target) && !seT.contains(event.target)){
+        setPan.classList.remove("open")
+        setPan.setAttribute("aria-hidden","true")
+    }
+})
 function rR(){
     const rSl=document.querySelector(".rsl")
     rSl.innerHTML=""
@@ -234,6 +328,7 @@ function aR(s){
         r.splice(4)
     }
     localStorage.setItem("r",JSON.stringify(r))
+    rR()
 }
 rR()
 function gD(){
@@ -274,5 +369,194 @@ function uC(){
     document.querySelector(".min").style.transform=`translateX(-50%) rotate(${minang}deg)`
     document.querySelector(".hr").style.transform=`translateX(-50%) rotate(${hrang}deg)`
 }
+async function gCL(city) {
+    try {
+        const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1&language=en&format=json`;
+        const res = await fetch(url);
+        if (!res.ok) {
+            throw new Error("Location request failed");
+        }
+        const da = await res.json();
+        if (!da.results || da.results.length === 0) {
+            throw new Error("City not found");
+        }
+        const pl = da.results[0];
+        return {
+            lat: pl.latitude, lon: pl.longitude, name: pl.name, country: pl.country};} catch (error) {
+        console.error("Location error:", error);
+        return null;}
+}
+const wEl=document.querySelector(".wth")
+async function fetchWeather(lat,lon,locationName){
+    try{
+        const url= `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code&timezone=auto`;
+        const res=await fetch(url);
+        if(!res.ok){
+            throw new Error("Weather request failed")
+        }
+        const da=await res.json();
+        const tem=Math.round(da.current.temperature_2m);
+        const cd=da.current.weather_code;
+        const cond={0: "Clear",
+            1: "Mostly Clear",
+            2:  "Partly Cloudy ",
+            3:  "Overcast ",
+            45:  "Foggy ",
+            48:  "Foggy ",
+            51:  "Light Drizzle ",
+            53:  "Drizzle ",
+            55:  "Heavy Drizzle ",
+            61:  "Light Rain ",
+            63:  "Rain ",
+            65:  "Heavy Rain ",
+            71:  "Light Snow ",
+            73:  "Snow ",
+            75:  "Heavy Snow ",
+            80:  "Rain Showers ",
+            81:  "Rain Showers ",
+            82:  "Heavy Rain Showers ",
+            95:  "Thunderstorm ",
+            96:  "Thunderstorm ",
+            99:  "Thunderstorm "};
+            const con=cond[cd]|| "Unknown ";
+            wEl.textContent=`${tem}°C • ${con} • ${locationName}`
+    }catch (error){
+        console.error("WTH error:",error);
+        wEl.textContent="Weather unavailable"
+    }
+}
+const wthcit=document.querySelector("#wthcit")
+if (wthcit) {
+    wthcit.value=localStorage.getItem("wthLoc")||"Los Angeles"
+    wthcit.addEventListener("change", async () => {
+        const cit = wthcit.value.trim();
+        if (!cit) return;
+        const loc = await gCL(cit);
+        if (!loc) {
+            wEl.textContent = "Location not found!";
+            return;
+        }
+        localStorage.setItem("wthLoc", cit);
+        await fetchWeather(loc.lat, loc.lon, loc.name);
+    });
+}
+async function uW(){
+    const svd=localStorage.getItem("wthLoc")||"Los Angeles"
+    const loc=await gCL(svd)
+    if(!loc){
+        const flb=await gCL("Los Angeles")
+    if(!flb){
+        wEl.textContent="Weather unavailable"
+        return
+    }
+    await fetchWeather(flb.lat,flb.lon,flb.name)
+    return
+}
+await fetchWeather(loc.lat, loc.lon,loc.name)
+}
+const sEng = document.querySelector("#sen")
+const seM = document.querySelector(".sem")
+const seN = document.querySelector("#sen-n")
+const seO = seM.querySelectorAll("button")
+const svEng = localStorage.getItem("sEng") || "ggl"
+const seNames = {
+    ggl: "Google",
+    bi: "Bing",
+    yh: "Yahoo",
+    ddg: "DuckDuckGo"
+}
+function updateSearchEngine() {
+    seN.textContent = seNames[svEng]
+    seO.forEach(btn => {
+        btn.classList.toggle(
+            "active",
+            btn.dataset.value === svEng
+        )
+    })
+}
+updateSearchEngine()
+sEng.addEventListener("click", (event) => {
+    event.stopPropagation()
+    const isOpen = seM.classList.toggle("open")
+    sEng.classList.toggle("open", isOpen)
+    seM.setAttribute("aria-hidden", String(!isOpen))
+})
+seO.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const val = btn.dataset.value
+        localStorage.setItem("sEng", val)
+        seN.textContent = seNames[val]
+        seO.forEach(b => {
+            b.classList.remove("active")
+        })
+        btn.classList.add("active")
+        seM.classList.remove("open")
+        sEng.classList.remove("open")
+        seM.setAttribute("aria-hidden", "true")
+    })
+})
+document.addEventListener("click", (event) => {
+    if (!event.target.closest(".sl-wr")) {
+        seM.classList.remove("open")
+        sEng.classList.remove("open")
+        seM.setAttribute("aria-hidden", "true")
+    }
+})
+const acc=document.querySelector("#acc")
+const defacc="#4f8cff"
+function iVH(val){
+    return /^#[0-9A-Fa-f]{6}$/.test(val)
+}
+function setacc(clr){
+    document.documentElement.style.setProperty("--accent",clr)
+    acc.value=clr.toUpperCase()
+    localStorage.setItem("act",clr)
+}
+const svacc=localStorage.getItem("act")
+if(svacc && iVH(svacc)){
+        setacc(svacc)
+    }else{ setacc(defacc)}
+acc.addEventListener("change",()=>{
+    let clr=acc.value.trim()
+    if(!clr.startsWith("#")){clr="#"+clr}
+    if(iVH(clr)){setacc(clr)}
+    else{const crt=getComputedStyle(document.documentElement).getPropertyValue("--accent").trim()
+    acc.value=crt.toUpperCase()
+    }
+})
+function sSu(q){
+    const query = q.trim().toLowerCase();
+    if(!query){
+        rS();
+        return;
+    }
+    const sugg = rs.filter(item =>
+        item.toLowerCase().includes(query)
+    );
+    sRP.innerHTML = "";
+    if(!sugg.length){
+        sRP.classList.remove("open");
+        sRP.setAttribute("aria-hidden","true");
+        return;
+    }
+    sugg.slice(0,4).forEach(item => {
+        const b = document.createElement("button");
+        b.className = "sri";
+        b.textContent = item;
+        b.addEventListener("click",()=>{
+            sIn.value = item;
+            sIn.dispatchEvent(
+                new KeyboardEvent("keydown",{key:"Enter"})
+            );
+        });
+        sRP.appendChild(b);
+    });
+    sRP.classList.add("open");
+    sRP.setAttribute("aria-hidden","false");
+}
+sIn.addEventListener("input",()=>{
+    sSu(sIn.value)
+})
+uW()
 uC()
 setInterval(uC,1000)
