@@ -161,6 +161,7 @@ function rS(){
     if(!rs.length){
         sRP.classList.remove("open")
         sRP.setAttribute("aria-hidden","true")
+        return
     }
     rs.slice(0,4).forEach(q=>{
         const b=document.createElement("button")
