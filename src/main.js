@@ -2,7 +2,7 @@ import './style.css'
 const API_KEY=import.meta.env.VITE_NASA_API_KEY
 document.querySelector("#app").innerHTML=`
 <main class="app">
-<div class="wall"></div>
+<div class="wall" id="wallp"></div>
 <aside class="left">
 <button id="set" class="bi set" type="button">
 <span class="tit">Settings</span>
@@ -24,6 +24,38 @@ document.querySelector("#app").innerHTML=`
 <section class="setit">
 <span class="setn">Appearance</span>
 <div class="setbtn-row"><button id="tb" class="setbtn" type="button">Dark Mode</button><button id="aw" class="setbtn" type="button">APOD Wall</button></div>
+<button id="sww" class="setbtn" type="button">
+<span>Swap Recent and Widgets</span></button>
+</section>
+<section class="setit">
+<span class="setn">Background</span>
+<div class="bgr">
+<label id="bglb" for="bgin" class="setbtn" >Choose your own</label>
+<input id="bgin" type="file" accept="image/*" hidden>
+<button id="wd" class="wd" type="button" title="Remove custom wallpaper"><img width="24" height="24" src="https://img.icons8.com/sf-regular/24/trash.png" alt="trash"/></button>
+</div></section>
+<section class="setit wig-set">
+<span class="setn">Widgets</span>
+<div class="wtr">
+<button class="setbtn wig-tog" data-wg="cl" title="Clock"><img width="24" height="24" src="https://img.icons8.com/sf-regular/24/present.png" alt="present"/></button>
+<button class="setbtn wig-tog" data-wg="cal" title="Calendar"><img width="24" height="24" src="https://img.icons8.com/sf-regular/24/calendar-31.png" alt="calendar-31"/></button>
+<button class="setbtn wig-tog" data-wg="ap" title="APOD"><img width="24" height="24" src="https://img.icons8.com/sf-regular/24/telescope.png" alt="telescope"/></button>
+</div></div></section>
+<section class="setit rc-set">
+<span class="setn">Recent Sites</span>
+<div class="rl-wr">
+<button id="ren" class="rl" type="button">
+<span id="ren-n">4</span>
+<span class="rlar">▾</span>
+</button>
+<div class="remn" id="remn">
+<button type="button" data-value="0">0 (Disabled)</button>
+<button type="button" data-value="1">1</button>
+<button type="button" data-value="2">2</button>
+<button type="button" data-value="3">3</button>
+<button type="button" data-value="4">4 (Default)</button>
+<button type="button" data-value="5">5</button>
+</div></div>
 </section>
 <section class="setit">
 <span class="setn">Search Engine</span>
@@ -67,7 +99,7 @@ aria-label="Search the web (Ctrl+K to start typing)"
 <div class="srp" aria-hidden="true"></div></div>
 </section>
 <aside class="wigr">
-<section class="wig cl-wig">
+<section class="wig cl-wig" data-wg="cl">
 <span class="wig-tit">Clock</span>
 <div class="an-cl">
 <div class="hand hr"></div>
@@ -75,7 +107,7 @@ aria-label="Search the web (Ctrl+K to start typing)"
 <div class="cc"></div>
 </div>
 </section>
-<section class="wig cal-wig">
+<section class="wig cal-wig" data-wg="cal">
 <span class="wig-tit">Calendar</span>
 <div class="calc">
 <span class="cal-mon">August 2026</span>
@@ -83,11 +115,12 @@ aria-label="Search the web (Ctrl+K to start typing)"
 <span class="cal-wd">Friday</span>
 </div>
 </section>
-<section class="wig wall-wig">
+<section class="wig wall-wig" data-wg="ap">
 <span class="wig-tit" id="wall-tit">Today's APOD</span>
 <div class="wallc">
-<span class="walln" id=walltit>Loading...</span>
+<span class="walln" id="walltit">Loading...</span>
 </div>
+<a class="wall-lk" href="https://science.nasa.gov/apod/" target="_blank" rel="noopener noreferrer">View More</a>
 </section>
 </aside>
 <nav id="booty" class="booty" aria-label="Pinned Sites">
@@ -97,43 +130,196 @@ aria-label="Search the web (Ctrl+K to start typing)"
 </svg></button>
 </nav>
 <div id="sm" class="sm" aria-hidden="true">
+<button id="newt" type="button">Open in New Tab</button>
+<button id="cp" type="button">Copy Link</button>
 <button id="ed" type="button">Edit</button>
 <button id="del" type="button">Delete</button>
 </div>
+<div id="wm" class="wm" aria-hidden="true">
+<button id="mu" type="button">Move up</button>
+<button id="md" type="button">Move down</button>
+</div>
+<div id="rm" class="rm" aria-hidden="true">
+<button id="rnt" type="button">Open in New Tab</button>
+<button id="rcp" type="button">Copy Link</button>
+<button id="rem" type="button">Remove</button>
+</div>
+<div id="pm" class="pm" aria-hidden="true">
+<button id="rr" type="button">Refresh</button>
+</div>
 </main>
 `;
+const lW=new Image()
+lW.src="./walls/wall1.jpg"
 const waLL=document.querySelector(".wall")
 const wallTit=document.querySelector("#wall-tit")
 const aw=document.querySelector("#aw")
-async function lAP(){
-    fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
-    .then(response=>response.json())
-    .then(data=>{
-        console.log(data)
-        console.log(data.media_type)
-        document.querySelector("#walltit").textContent=data.title
-        if(data.media_type==="image"){
-            waLL.style.backgroundImage=`url("${data.url}")`
+const wI=document.querySelector("#bgin")
+const bgLb=document.querySelector("#bglb")
+const wd=document.querySelector("#wd")
+wI.addEventListener("change",()=>{
+    const fl=wI.files[0]
+    if(!fl)return
+    if(!fl.type.startsWith("image/")){
+        alert("Please select an image file.")
+        return
+    }
+    if(fl.size>5*1024*1024){
+        alert("Please select an image smaller than 5MB.")
+        return
+    }
+    const rd=new FileReader()
+    rd.onload=()=>{
+        localStorage.setItem("cusWa",rd.result)
+        waLL.style.backgroundImage=`url("${rd.result}")`
+        bgLb.textContent="Using own image, change?"
+        bgLb.classList.add("active")
+        aw.classList.remove("active")
+        localStorage.setItem("apod","off")
+        wd.style.display="flex"
+    }
+    rd.readAsDataURL(fl)
+})
+wd.addEventListener("click",()=>{
+    localStorage.removeItem("cusWa")
+    wd.style.display="none"
+    bgLb.classList.remove("active")
+    bgLb.textContent="Choose your own"
+    waLL.style.backgroundImage=`url("${lW.src}")`
+})
+const APCK="apC"
+function gCAP(){
+    const cch=localStorage.getItem(APCK)
+    if(!cch) return null
+    try{
+        return JSON.parse(cch)
+    }catch(error){
+        console.error("Invalid APOD Cache:",error)
+        localStorage.removeItem(APCK)
+        return null
+    }
+}
+function sAP(data){
+    const ap={date:data.date,title:data.title,explanation:data.explanation||"",media_type:data.media_type,url:data.url||"",thumbnail_url:data.thumbnail_url||""}
+    localStorage.setItem(APCK,JSON.stringify(ap))    
+    return ap
+}
+function gAPI(ap){
+    if(ap.media_type==="video"){
+        return ap.thumbnail_url||""
+    }
+    return ap.url||""
+}
+function apAP(ap){
+    if(!ap) return false
+    const imgUR=gAPI(ap)
+    if(!imgUR) return false
+    document.querySelector("#walltit").textContent=ap.title
+    if(ap.media_type==="image"){
             wallTit.textContent="Today's APOD (Wallpaper)"
         }
-    })
+        else if(ap.media_type==="video"){
+            wallTit.textContent="Today's APOD (Video) (Static WP)"
+        }else return false
+    const img=new Image()
+    img.onload=()=>{
+            if(ap.media_type==="image"){
+            waLL.style.backgroundImage=`url("${ap.url}")`
+            wallTit.textContent="Today's APOD (Wallpaper)"
+        }
+        else if(ap.media_type==="video"){
+            waLL.style.backgroundImage=`url("${ap.thumbnail_url}")`
+            wallTit.textContent="Today's APOD (Video) (Static WP)"
+        }
+    }
+    img.onerror=()=>{
+             if(ap.media_type==="image"){
+            waLL.style.backgroundImage=`url("${ap.url}")`
+            wallTit.textContent="Today's APOD (Wallpaper)"
+        }
+        else if(ap.media_type==="video"){
+            waLL.style.backgroundImage=`url("${ap.thumbnail_url}")`
+            wallTit.textContent="Today's APOD (Video) (Static WP)"
+        }
+    }
+    img.src=imgUR
+    return true
 }
-aw.addEventListener("click", () => {
+async function fahPOD(){
+    try{
+        const res=await fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
+    if(!res.ok){
+        throw new Error(`NASA API returned ${res.status}`)
+    }
+    const dt=await res.json()
+    console.log("New APOD received",dt)
+    return sAP(dt)
+    }catch(error){
+        console.error("APOD request failed:",error)
+        const chd=gCAP();
+        if(chd){
+            console.log("Using cached APOD")
+            return chd
+        }
+        return null
+    }
+}   
+async function lAP(){
+        const chad=gCAP()
+        const td=new Date().toISOString().split("T")[0]
+        if(chad && chad.date===td){
+            console.log("Using today's cached APOD")
+            apAP(chad)
+            return chad
+        }
+        console.log("Fetching today's APOD...")
+        const apd=await fahPOD()
+        if(apd){
+            apAP(apd)
+        }
+        return apd
+    }
+function uAP(){
+    const chd=gCAP()
+    if(chd){
+        document.querySelector("#walltit").textContent=chd.title
+    }
+}
+aw.addEventListener("click", async () => {
     const ebl = localStorage.getItem("apod") !== "off";
     const neS = !ebl;
     localStorage.setItem("apod", neS? "on" : "off");
     aw.classList.toggle("active", neS);
     if (neS) {
-        lAP();
+        bgLb.classList.remove("active");
+        bgLb.textContent = "APOD on, choose new?";
+            await lAP();
     } else {
-        waLL.style.backgroundImage = "url('./walls/wall1.jpg')";
+        const cw=localStorage.getItem("cusWa")
+        waLL.style.backgroundImage = cw?`url("${cw}")`:`url('${lW.src}')`;
         wallTit.textContent = "Today's APOD";
+        if(cw){
+            bgLb.textContent="Using own image, change?"
+            bgLb.classList.add("active")
+        }else{
+            bgLb.classList.remove("active")
+            bgLb.textContent="Choose your own"
+        }
     }
 });
 
-if(localStorage.getItem("apod")!=="off"){
+if(localStorage.getItem("apod")=="on"){
     aw.classList.add("active")
-    lAP()
+    setTimeout(()=>{lAP();},1000);
+}
+const cusWa=localStorage.getItem("cusWa")
+wd.style.display=cusWa?"flex":"none"
+if(cusWa && localStorage.getItem("apod")!=="on"){
+    waLL.style.backgroundImage=`url("${cusWa}")`
+}
+if(cusWa){
+    bgLb.textContent="Using own image, change?"
+    bgLb.classList.add("active")
 }
 const seT=document.querySelector("#set")
 const setPan=document.querySelector(".set-pan")
@@ -194,6 +380,12 @@ document.addEventListener("click",(event)=>{
         sRP.setAttribute("aria-hidden","true")
     }
 })
+sIn.addEventListener("keydown",(e)=>{
+    if(e.key==="Escape"){
+        sIn.blur();
+        sRP?.classList.remove("open")
+    }
+})
 const sU={ggl:"https://www.google.com/search?q=",bi:"https://www.bing.com/search?q=",yh:"https://search.yahoo.com/search?p=",ddg:"https://www.duckduckgo.com/search?q="}
 sIn.addEventListener("keydown",(event)=>{
     if(event.key!=="Enter")return
@@ -225,24 +417,49 @@ const piSS=document.querySelector("#booty")
 const adS=document.querySelector("#ditadd")
 let s=JSON.parse(localStorage.getItem("piSS")||"[]")
 let r=JSON.parse(localStorage.getItem("r")||"[]")
+let rC=Number(localStorage.getItem("rect")??4)
+const rCS=document.querySelector("#ren")
+const rCN=document.querySelector("#ren-n")
+const rCM=document.querySelector("#remn")
+const rCO=rCM.querySelectorAll("button")
+rCN.textContent=rC
+let drS=null
 function rpiSS(){
     piSS.querySelectorAll(".stit").forEach(s=>s.remove())
-    s.forEach((s,index)=>{
+    s.forEach((st,index)=>{
         const lk=document.createElement("a")
         lk.className="dit stit"
-        lk.href=s.url
-        lk.title=s.name
+        lk.href=st.url
+        lk.title=st.name
+        lk.draggable=true
         lk.addEventListener("click",()=>{
-            aR(s)
+            aR(st)
         })
         const ic=document.createElement("img")
         ic.className="dic"
-        ic.src=`https://www.google.com/s2/favicons?domain=${new URL(s.url).hostname}&sz=64`
+        ic.src=`https://www.google.com/s2/favicons?domain=${new URL(st.url).hostname}&sz=64`
         ic.alt=""
         lk.appendChild(ic)
         lk.addEventListener("contextmenu",(event)=>{
             event.preventDefault()
             oSM(event,index)
+        })
+        lk.addEventListener("dragstart",(event)=>{
+            drS=index
+        event.dataTransfer.setData("text/plain",index)})
+        lk.addEventListener("dragend",(event)=>{
+            drS=null})
+        lk.addEventListener("dragover",(event)=>{
+            event.preventDefault()})
+        lk.addEventListener("drop",(event)=>{
+            event.preventDefault()
+            const fIh=Number(event.dataTransfer.getData("text/plain"))
+            if(Number.isNaN(fIh) || fIh===index)return
+            const mvd=s.splice(fIh,1)[0]
+            s.splice(index,0,mvd)
+            localStorage.setItem("piSS",JSON.stringify(s))
+            drS=null
+            rpiSS()
         })
         piSS.insertBefore(lk,adS)
     })
@@ -262,8 +479,22 @@ rpiSS()
 const sM=document.querySelector("#sm")
 const eS=document.querySelector("#ed")
 const dS=document.querySelector("#del")
+const nT=document.querySelector("#newt")
+const cP=document.querySelector("#cp")
+const wM=document.querySelector("#wm")
+const mU=document.querySelector("#mu")
+const mD=document.querySelector("#md")
+const rM=document.querySelector("#rm")
+const reM=document.querySelector("#rem")
+const rNt=document.querySelector("#rnt")
+const rCp=document.querySelector("#rcp")
+const pM=document.querySelector("#pm")
+const rRr=document.querySelector("#rr")
+let reS=null
+let wS=null
 let sS=null
 function oSM(event,index){
+    cA()
     sS=index
     sM.style.left=`${event.clientX}px`
     sM.style.top=`${event.clientY}px`
@@ -275,6 +506,21 @@ function cSM(){
     sM.classList.remove("open")
     sM.setAttribute("aria-hidden","true")
 }
+nT.addEventListener("click",()=>{
+    if(sS===null)return
+    const si=s[sS]
+    aR(si)
+    window.open(si.url,"_blank")
+    cSM()
+})
+cP.addEventListener("click",()=>{
+    if(!sS)return
+    const si=s[sS]
+    navigator.clipboard.writeText(si.url).then(()=>{
+        alert("Link copied to clipboard")
+    })
+    cSM()
+})
 eS.addEventListener("click",()=>{
     if(sS===null)return
     const si=s[sS]
@@ -283,9 +529,9 @@ eS.addEventListener("click",()=>{
     const ur=prompt("Site URL:")
     if(!ur)return
     const hur=ur.startsWith("http")?ur:`https://${ur}`
-    localStorage.setItem("piSS",JSON.stringify(s))
     si.name=n
-    si.url=hur
+    si.url=hur 
+    localStorage.setItem("piSS",JSON.stringify(s))
     cSM()
     rpiSS()
 })
@@ -300,6 +546,15 @@ document.addEventListener("click",(event)=>{
     if(!sM.contains(event.target)){
         cSM()
     }
+    if(!wM.contains(event.target)){
+        cWM()
+    }
+    if(!rM.contains(event.target)){
+        cRM()
+    }
+    if(!pM.contains(event.target)){
+        cPM()
+    }
 })
 document.addEventListener("click",(event)=>{
     if(!setPan.contains(event.target) && !seT.contains(event.target)){
@@ -309,12 +564,23 @@ document.addEventListener("click",(event)=>{
 })
 function rR(){
     const rSl=document.querySelector(".rsl")
+    const rSc=document.querySelector(".rs")
     rSl.innerHTML=""
-    r.forEach(s=>{
+    rSc.style.display=rC===0?"none":""
+    r.slice(0,rC).forEach(s=>{
         const lk=document.createElement("a")
         lk.className="ri"
         lk.href=s.url
         lk.title=s.name
+        lk.addEventListener("contextmenu", (event) => {
+            cA()
+            event.preventDefault()
+            reS = s
+            rM.style.left = `${event.clientX}px`
+            rM.style.top = `${event.clientY}px`
+            rM.classList.add("open")
+            rM.setAttribute("aria-hidden", "false")
+        })
         const ic=document.createElement("img")
         ic.className="dic"
         ic.src=`https://www.google.com/s2/favicons?domain=${new URL(s.url).hostname}&sz=64`
@@ -329,8 +595,8 @@ function aR(s){
         r.splice(ex,1)
     }
     r.unshift(s)
-    if (r.length>4){
-        r.splice(4)
+    if (r.length>5){
+        r.splice(5)
     }
     localStorage.setItem("r",JSON.stringify(r))
     rR()
@@ -506,6 +772,11 @@ document.addEventListener("click", (event) => {
         sEng.classList.remove("open")
         seM.setAttribute("aria-hidden", "true")
     }
+    if(!event.target.closest(".rl-wr")){
+        rCM.classList.remove("open")
+        rCS.classList.remove("open")
+        rCM.setAttribute("aria-hidden","true")
+    }
 })
 const acc=document.querySelector("#acc")
 const defacc="#4f8cff"
@@ -562,6 +833,172 @@ function sSu(q){
 sIn.addEventListener("input",()=>{
     sSu(sIn.value)
 })
+const wigTog=document.querySelectorAll(".wig-tog");
+wigTog.forEach(btn=>{
+
+    const wg=document.querySelector(`.wig[data-wg="${btn.dataset.wg}"]`);
+    wg.addEventListener("contextmenu",(event)=>{
+        cA()
+            event.preventDefault()
+            wS=wg
+            wM.style.left=`${event.clientX}px`
+            wM.style.top=`${event.clientY}px`
+            wM.classList.add("open")
+            wM.setAttribute("aria-hidden","false")
+        })
+    const ebl=localStorage.getItem(`wg-${btn.dataset.wg}`)!=="off";
+    btn.classList.toggle("active",ebl);
+    wg.style.display=ebl?"":"none";
+    btn.addEventListener("click",()=>{
+        const iE=btn.classList.toggle("active");
+        localStorage.setItem(`wg-${btn.dataset.wg}`,iE?"on":"off");
+        wg.style.display=iE?"":"none";
+    })
+})
+mU.addEventListener("click",()=>{
+    if(!wS)return
+    const prev=wS.previousElementSibling
+    if(prev) {wS.parentNode.insertBefore(wS,prev)
+        sWO()}else{
+    alert("Can't move! Already at the top")}
+    cWM()
+})
+mD.addEventListener("click",()=>{
+    if(!wS)return
+    const next=wS.nextElementSibling
+    if(next) {wS.parentNode.insertBefore(next,wS)
+        sWO()}else{
+    alert("Can't move! Already at the bottom")}
+    cWM()
+})
+function cWM(){
+    wS=null
+    wM.classList.remove("open")
+    wM.setAttribute("aria-hidden","true")
+}
+function sWO(){
+    const wigs=[...document.querySelectorAll(".wig")]
+    .map(wg=>wg.dataset.wg)
+    localStorage.setItem("wgord",JSON.stringify(wigs))
+}
+function lWO(){
+    const svd=JSON.parse(localStorage.getItem("wgord")||"[]")
+    if(!svd)return
+    const wigr=document.querySelector(".wigr")
+    svd.forEach(id=>{
+        const wg=document.querySelector(`.wig[data-wg="${id}"]`)
+        if(wg) wigr.appendChild(wg)
+    })
+}
+function cRM(){
+    reS=null
+    rM.classList.remove("open")
+    rM.setAttribute("aria-hidden","true")
+}
+rNt.addEventListener("click",()=>{
+    if(reS===null)return
+    aR(reS)
+    window.open(reS.url,"_blank")
+    cSM()
+})
+rCp.addEventListener("click",()=>{
+    if(!reS)return
+    navigator.clipboard.writeText(reS.url).then(()=>{
+        alert("Link copied to clipboard")
+    })
+    cSM()
+})
+reM.addEventListener("click",()=>{
+    if(!reS)return
+    r=r.filter(item=>item.url!==reS.url)
+    localStorage.setItem("r",JSON.stringify(r))
+    rR()
+    cRM()
+})
+rRr.addEventListener("click",()=>{
+    location.reload()
+})
+function cPM(){
+    pM.classList.remove("open")
+    pM.setAttribute("aria-hidden","true")
+}
+waLL.addEventListener("contextmenu",(event)=>{
+    event.preventDefault()
+    cA()
+    pM.style.left=`${event.clientX}px`
+    pM.style.top=`${event.clientY}px`
+    pM.classList.add("open")
+    pM.setAttribute("aria-hidden","false")
+})
+function cA(){
+    cSM()
+    cWM()
+    cRM()
+    cPM()
+}
+document.addEventListener("contextmenu",(event)=>{
+    const tg=event.target
+    if(tg.closest(".dit")|| tg.closest(".ri")||tg.closest(".wig")){return}
+    if(
+        tg.closest("button") ||
+        tg.closest("textarea") ||
+        tg.closest("#booty") ||
+        tg.closest(".rsl")
+    ){
+        event.preventDefault()
+        cA()
+        return
+    }
+})
+adS.addEventListener("contextmenu",(event)=>{
+    event.preventDefault()
+})
+document.addEventListener("keydown",(event)=>{
+    if(event.key==="Escape"){
+        cA()
+        setPan.classList.remove("open")
+        setPan.setAttribute("aria-hidden","true")
+    }
+})
+rCS.addEventListener("click",(event)=>{
+    event.stopPropagation()
+    const iO=rCM.classList.toggle("open")
+    rCS.classList.toggle("open",iO)
+    rCM.setAttribute("aria-hidden",String(!iO))
+})
+rCO.forEach(btn=>{
+    btn.addEventListener("click",()=>{
+        rC=Number(btn.dataset.value)
+        localStorage.setItem("rC",rC)
+        rCN.textContent=rC
+        rCO.forEach(b=>b.classList.remove("active"))
+        btn.classList.toggle("active",Number(btn.dataset.value)===rC)
+        rCM.classList.remove("open")
+        rCS.classList.remove("open")
+        rCM.setAttribute("aria-hidden","true")
+        rR()
+    }
+)})
+const sW=document.querySelector("#sww")
+const app = document.querySelector(".app")
+function uSW(){
+    const en=localStorage.getItem("sW")==="on"
+    document.querySelector(".app").classList.toggle("ssd",en)
+    app.classList.remove("ssd")
+    void app.offsetWidth
+    if(en){
+        app.classList.add("ssd")
+    }
+    sW.classList.toggle("active",en)
+}
+sW.addEventListener("click",()=>{
+    const en=localStorage.getItem("sW")==="on"
+    localStorage.setItem("sW",en?"off":"on")
+    uSW()
+})
+uSW()
 uW()
 uC()
+uAP()
+lWO()
 setInterval(uC,1000)
