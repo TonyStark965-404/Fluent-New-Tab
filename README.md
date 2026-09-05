@@ -2,7 +2,8 @@
 
 A clean (kinda) customizable New Tab page, inspired heavily by Microsoft Fluent Design System and macOS Sequoia (the one that came before Tahoe). 
 
-## Version 2.0 is out now!! Download it from the Releases section
+## Version 3.0 is out now!! 
+Download it from the [Releases](https://github.com/TonyStark965-404/Fluent-New-Tab/releases) section
 
 ## How does it look?
 ### Light Mode:
@@ -19,7 +20,7 @@ A clean (kinda) customizable New Tab page, inspired heavily by Microsoft Fluent 
 - Click "Load Unpacked", head to where you extracted the .zip file and click Select folder
 
 ## What features does it have?
-- A consistent design language, inspired by Windows 11 and MacOS Sequoia
+- A consistent design language, inspired by Windows 11 and macOS Sequoia
 - Widgets showcasing current date and time
 - Live Weather
 - Dock style Recent and Pinned Sites
@@ -27,10 +28,17 @@ A clean (kinda) customizable New Tab page, inspired heavily by Microsoft Fluent 
 - Recent Searches and Search suggestions while typing
 - Supports 4 Search Engines - Google, Bing, Yahoo and DuckDuckGo
 - Another widget that tells you about Today's Astronomy Picture of The Day (provided by NASA)
-- Uses NASA APOD as wallpaper (now toggleable), so it's updated daily (unless the APOD is a video, then you only get to know about it)
+- Uses NASA APOD as wallpaper (now toggleable), so it's updated daily, and now shows a static wallpaper using the thumbnail when APOD is a video
+- You can now learn more about the APOD
+- Swappable locations for Recent Sites dock and Widgets
+- Customizable widget positions and toggleable widgets
 - "Ctrl+K" to instantly activate the Search Bar, so you can start searching without even touching your mouse.
+- Escape to close any panel/context menu
+- Custom user uploaded wallpapers
 - No special browser permissions needed
-  
+- You can choose how many Recent Sites you want to show
+- Draggable and more customizable Pinned Sites
+
 ## How can I run it locally and modify it?
    Easy, just do this:
    ```bash
@@ -40,7 +48,7 @@ A clean (kinda) customizable New Tab page, inspired heavily by Microsoft Fluent 
    npm run dev
 ```
 You'll find that the page will be running at a localhost:####, open it in your browser to see.
-P.S.- This requires a NASA API Key, and a .env file, so you'll need to get one for yourself and put it in a .env file with the syntax from .env.example(already added here)
+P.S.- This requires a NASA API key, and a .env file, so you'll need to get one for yourself and put it in a .env file with the syntax from .env.example(already added here)
 
 [![Get your own NASA API here](https://img.shields.io/badge/NASA-api-blue?style=for-the-badge)](https://api.nasa.gov/)
 
@@ -55,9 +63,13 @@ Fluent New Tab is built with Vite and JavaScript, where user preferences and pin
    
 ## Whom to Credit for the assets?
 - [Mykyta Martynenko](https://unsplash.com/@prostotakphoto) on Unsplash for the Default leaves wallpaper
-- [Icons8](https://icons8.com) for the "Settings" and "+" icons
+- [Icons8](https://icons8.com) for the Extension logo and the "Settings" and "+" icons
 
 ## Are There some issues?
 Yes
-- There is no support for a Video wallpaper provided by NASA APOD, so it falls back to the default wallpaper
-- The APOD server takes some time to connect, so you might see a blank background for a couple of seconds
+- Since it focuses heavily on privacy, it doesn't automatically detect your location, nor does it use your browser history for Recent Sites or Recent Searches.
+- Because of this, you have to enter your own location manually.
+- Recent Sites are determined by the last Pinned Site you visited.
+- Recent Searches are based on what you searched for from the extension.
+
+These limitations are intentional for privacy reasons and will be addressed in a separate privacy un-focused release.
