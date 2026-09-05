@@ -150,7 +150,7 @@ aria-label="Search the web (Ctrl+K to start typing)"
 </main>
 `;
 const lW=new Image()
-lW.src="/walls/wall1.jpg"
+lW.src=`${import.meta.env.BASE_URL}walls/wall1.jpg`
 const waLL=document.querySelector(".wall")
 const wallTit=document.querySelector("#wall-tit")
 const aw=document.querySelector("#aw")
