@@ -223,6 +223,7 @@ function gAPI(ap){
 }
 function apAP(ap){
     if(!ap) return false
+    uAP(ap);
     const imgUR=gAPI(ap)
     if(!imgUR) return false
     document.querySelector("#walltit").textContent=ap.title
@@ -262,7 +263,10 @@ async function fahPOD(){
         throw new Error(`NASA API returned ${res.status}`)
     }
     const dt=await res.json()
-    console.log("New APOD received",dt)
+    console.log("New APOD received:", dt);
+console.log("Is array:", Array.isArray(dt));
+console.log("First item:", dt?.[0]);
+console.log("Response keys:", Object.keys(dt ?? {}));
     return sAP(dt)
     }catch(error){
         console.error("APOD request failed:",error)
@@ -289,12 +293,24 @@ async function lAP(){
         }
         return apd
     }
-function uAP(){
-    const chd=gCAP()
-    if(chd){
-        document.querySelector("#walltit").textContent=chd.title
+
+function uAP(ap) {
+    if (!ap) return;
+
+    const titleEl = document.querySelector("#walltit");
+    const statusEl = document.querySelector("#wall-tit");
+
+    titleEl.textContent = ap.title || "Today's APOD";
+
+    if (ap.media_type === "video") {
+        statusEl.textContent = "Today's APOD (Video) (Static WP)";
+    } else if (ap.media_type === "image") {
+        statusEl.textContent = "Today's APOD (Wallpaper)";
+    } else {
+        statusEl.textContent = "Today's APOD";
     }
 }
+
 aw.addEventListener("click", async () => {
     const ebl = localStorage.getItem("apod") !== "off";
     const neS = !ebl;
