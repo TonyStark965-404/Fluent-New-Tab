@@ -1,5 +1,7 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: '/Fluent-New-Tab/'
+  base: process.env.DEPLOY_TARGET === 'vercel'
+    ? '/'
+    : '/Fluent-New-Tab/'
 })
