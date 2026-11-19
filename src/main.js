@@ -214,7 +214,7 @@ function sAP(data){
 }
 function gAPI(ap){
     if (ap.media_type === "video") {
-        return ap.thumbnail_url || "";
+        return ap.hdurl || ap.thumbnail_url || "";
     }
     if (ap.media_type === "image") {
         return ap.hdurl || "";
@@ -243,16 +243,13 @@ function apAP(ap){
             wallTit.textContent="Today's APOD (Video) (Static WP)"
         }
     }
-    img.onerror=()=>{
-             if(ap.media_type==="image"){
-            waLL.style.backgroundImage = `url("${imgUR}")`;
-            wallTit.textContent="Today's APOD (Wallpaper)"
-        }
-        else if(ap.media_type==="video"){
-            waLL.style.backgroundImage=`url("${ap.thumbnail_url}")`
-            wallTit.textContent="Today's APOD (Video) (Static WP)"
-        }
-    }
+    img.onerror = () => {
+    console.error("APOD wallpaper image failed to load:", {
+        date: ap.date,
+        media_type: ap.media_type,
+        imageURL: imgUR
+    });
+};
     img.src=imgUR
     return true
 }
