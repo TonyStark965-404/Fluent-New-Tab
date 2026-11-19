@@ -254,30 +254,36 @@ function apAP(ap){
     img.src=imgUR
     return true
 }
-async function fahPOD(){
-    try{
+async function fahPOD() {
+    try {
         const res = await fetch(
-    `https://science.nasa.gov/wp-json/wp/v2/apod-basic/?api_key=${encodeURIComponent(API_KEY || "DEMO_KEY")}`
-);
-    if(!res.ok){
-        throw new Error(`NASA API returned ${res.status}`)
-    }
-    const dt=await res.json()
-    console.log("New APOD received:", dt);
-console.log("Is array:", Array.isArray(dt));
-console.log("First item:", dt?.[0]);
-console.log("Response keys:", Object.keys(dt ?? {}));
-    return sAP(dt)
-    }catch(error){
-        console.error("APOD request failed:",error)
-        const chd=gCAP();
-        if(chd){
-            console.log("Using cached APOD")
-            return chd
+            `https://science.nasa.gov/wp-json/wp/v2/apod-basic/?api_key=${encodeURIComponent(API_KEY || "DEMO_KEY")}`
+        );
+
+        if (!res.ok) {
+            throw new Error(`NASA API returned ${res.status}`);
         }
-        return null
+        const data = await res.json();
+        console.log("New APOD received:", data);
+        const today = new Date().toISOString().split("T")[0];
+        const ap = Array.isArray(data)
+            ? data.find(item => item.date === today) || data[0]
+            : data;
+        if (!ap || !ap.title) {
+            throw new Error("No valid APOD entry found");
+        }
+        console.log("Selected APOD:", ap.title, ap.date);
+        return sAP(ap);
+    } catch (error) {
+        console.error("APOD request failed:", error);
+        const cached = gCAP();
+        if (cached) {
+            console.log("Using cached APOD:", cached.title);
+            return cached;
+        }
+        return null;
     }
-}   
+}
 async function lAP(){
         const chad=gCAP()
         const td=new Date().toISOString().split("T")[0]
