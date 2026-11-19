@@ -200,15 +200,26 @@ function gCAP(){
     }
 }
 function sAP(data){
-    const ap={date:data.date,title:data.title,explanation:data.explanation||"",media_type:data.media_type,url:data.url||"",thumbnail_url:data.thumbnail_url||""}
+    const ap = {
+        date: data.date,
+        title: data.title,
+        explanation: data.explanation || "",
+        media_type: data.media_type,
+        url: data.url || "",
+        hdurl: data.hdurl || "",
+        thumbnail_url: data.thumbnail_url || ""
+    };
     localStorage.setItem(APCK,JSON.stringify(ap))    
     return ap
 }
 function gAPI(ap){
-    if(ap.media_type==="video"){
-        return ap.thumbnail_url||""
+    if (ap.media_type === "video") {
+        return ap.thumbnail_url || "";
     }
-    return ap.url||""
+    if (ap.media_type === "image") {
+        return ap.hdurl || "";
+    }
+    return "";
 }
 function apAP(ap){
     if(!ap) return false
@@ -224,7 +235,7 @@ function apAP(ap){
     const img=new Image()
     img.onload=()=>{
             if(ap.media_type==="image"){
-            waLL.style.backgroundImage=`url("${ap.url}")`
+            waLL.style.backgroundImage = `url("${imgUR}")`;
             wallTit.textContent="Today's APOD (Wallpaper)"
         }
         else if(ap.media_type==="video"){
@@ -234,7 +245,7 @@ function apAP(ap){
     }
     img.onerror=()=>{
              if(ap.media_type==="image"){
-            waLL.style.backgroundImage=`url("${ap.url}")`
+            waLL.style.backgroundImage = `url("${imgUR}")`;
             wallTit.textContent="Today's APOD (Wallpaper)"
         }
         else if(ap.media_type==="video"){
@@ -247,7 +258,9 @@ function apAP(ap){
 }
 async function fahPOD(){
     try{
-        const res=await fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
+        const res = await fetch(
+    `https://science.nasa.gov/wp-json/wp/v2/apod-basic/?api_key=${encodeURIComponent(API_KEY || "DEMO_KEY")}`
+);
     if(!res.ok){
         throw new Error(`NASA API returned ${res.status}`)
     }
